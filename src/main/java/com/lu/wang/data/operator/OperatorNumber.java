@@ -2,9 +2,14 @@ package com.lu.wang.data.operator;
 
 import java.math.BigDecimal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.lu.wang.mgr.StackMgr;
 
 public class OperatorNumber extends Operator {
+	private static final Logger log = LoggerFactory.getLogger(OperatorNumber.class);
+
 	/**
 	 * Number
 	 */

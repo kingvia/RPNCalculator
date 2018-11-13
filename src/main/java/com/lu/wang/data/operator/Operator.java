@@ -69,11 +69,11 @@ public abstract class Operator implements OperatorInterface {
 	 * 
 	 * @return A string that represents the current object.
 	 */
-	public String toStirng() {
+	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Operator: ");
+		sb.append("Operator: key=");
 		sb.append(getKey());
-		sb.append(" ");
+		sb.append(" position=");
 		sb.append(getPosition());
 		return sb.toString();
 	}

@@ -3,9 +3,13 @@ package com.lu.wang.mgr;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.lu.wang.data.operator.Operator;
 
 public class OperatorMgr {
+	private static final Logger log = LoggerFactory.getLogger(OperatorMgr.class);
 
 	private static final String OPERATOR_ERROR = "operator %s (position: %d): insufficient parameters";
 
@@ -29,14 +33,14 @@ public class OperatorMgr {
 	public String initFromCommand(String command) {
 		operatorList = new ArrayList<Operator>();
 		String[] keys = command.split(" ");
-		int lastIndex = 0;
+		int lastIndex = -1;
 		for (String key : keys) {
 			// double space, skip
 			if (key.isEmpty()) {
 				continue;
 			}
 			lastIndex = command.indexOf(key, lastIndex + 1);
-			Operator operator = OperatorFactory.getOperator(key, lastIndex + key.length());
+			Operator operator = OperatorFactory.getOperator(key, lastIndex + 1);
 			if (operator != null) {
 				operatorList.add(operator);
 			} else {

@@ -4,11 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.lu.wang.data.operator.Operator;
 import com.lu.wang.mgr.OperatorMgr;
 import com.lu.wang.mgr.StackMgr;
 
 public class RPNCalculatorApp {
+	private static final Logger log = LoggerFactory.getLogger(RPNCalculatorApp.class);
+
 	private static final String COMMAND_ERROR = "invalid input";
 
 	/**
@@ -41,10 +46,15 @@ public class RPNCalculatorApp {
 				// Read user input
 				br = new BufferedReader(new InputStreamReader(System.in));
 				s = br.readLine();
-				error = calculate(s);
+				log.info("Start user command [" + s + "]");
+
+				error = calculate(s.toLowerCase());
 				if (error != null) {
 					System.out.println(error);
 				}
+
+				log.info("Finish user command [" + s + "] => [" + stackMgr.getStack().toString() + "]");
+
 				System.out.println(stackMgr.getStack().toString());
 			} catch (IOException e) {
 				System.out.println(COMMAND_ERROR);
@@ -60,6 +70,7 @@ public class RPNCalculatorApp {
 	 * @return Error message if invalid command specified. Otherwise null.
 	 */
 	public String calculate(String command) {
+
 		String error = operatorMgr.initFromCommand(command);
 		if (error != null) {
 			return error;
@@ -69,6 +80,8 @@ public class RPNCalculatorApp {
 			if (error != null) {
 				return error;
 			}
+			// Successful, log the stack.
+			log.debug("After process [" + o.toString() + "] => [" + stackMgr.getStack().toString() + "]");
 		}
 		return null;
 	}
@@ -105,7 +118,11 @@ public class RPNCalculatorApp {
 	 * Main method for the application
 	 */
 	public static void main(String[] args) {
+		log.info("Application started ...");
+
 		RPNCalculatorApp app = new RPNCalculatorApp();
 		app.run();
+
+		log.info("Application stopped ...");
 	}
 }

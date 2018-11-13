@@ -38,10 +38,9 @@ public class StackHistory {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Stack History:\n");
+		sb.append("Stack History: ");
 		for (Stack stack : getHistory()) {
 			sb.append(stack.toString());
-			sb.append("\n");
 		}
 		return sb.toString();
 	}

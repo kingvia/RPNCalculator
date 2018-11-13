@@ -55,7 +55,7 @@ public class Stack {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Stack: ");
+		sb.append("stack: ");
 		for (BigDecimal stack : getList()) {
 			if (stack.scale() > MAX_DECIMAL) {
 				sb.append(stack.setScale(MAX_DECIMAL, RoundingMode.FLOOR));

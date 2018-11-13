@@ -1,8 +1,13 @@
 package com.lu.wang.data.operator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.lu.wang.mgr.StackMgr;
 
 public class OperatorClear extends Operator {
+	private static final Logger log = LoggerFactory.getLogger(OperatorClear.class);
+
 	/**
 	 * Key of clear operator
 	 */

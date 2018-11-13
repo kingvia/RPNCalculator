@@ -18,22 +18,31 @@ public class OperatorMgrTest {
 
 		int i = 0;
 		assertEquals("Operator " + i, "5", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 1, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "2", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 3, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "+", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 5, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "-", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 7, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "*", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 9, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "/", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 11, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "sqrt", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 13, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "undo", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 18, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "clear", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 23, mgr.getOperatorList().get(i).getPosition());
 	}
 
 	/**
@@ -49,18 +58,22 @@ public class OperatorMgrTest {
 		int i = 0;
 		for (int j = 0; j < 4; j++) {
 			assertEquals("Operator " + i, "2", mgr.getOperatorList().get(i).getKey());
+			assertEquals("Operator " + i + " position", i + 1 + j, mgr.getOperatorList().get(i).getPosition());
 			i++;
 		}
 		for (int j = 0; j < 4; j++) {
 			assertEquals("Operator " + i, "clear", mgr.getOperatorList().get(i).getKey());
+			assertEquals("Operator " + i + " position", i + 5 + j * 5, mgr.getOperatorList().get(i).getPosition());
 			i++;
 		}
 		for (int j = 0; j < 4; j++) {
 			assertEquals("Operator " + i, "undo", mgr.getOperatorList().get(i).getKey());
+			assertEquals("Operator " + i + " position", i + 25 + j * 4, mgr.getOperatorList().get(i).getPosition());
 			i++;
 		}
 		for (int j = 0; j < 4; j++) {
 			assertEquals("Operator " + i, "+", mgr.getOperatorList().get(i).getKey());
+			assertEquals("Operator " + i + " position", i + 41 + j, mgr.getOperatorList().get(i).getPosition());
 			i++;
 		}
 	}
@@ -88,21 +101,30 @@ public class OperatorMgrTest {
 
 		int i = 0;
 		assertEquals("Operator " + i, "5", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 3, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "2", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 6, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "+", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 9, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "-", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 15, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "*", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 18, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "/", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 21, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "sqrt", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 26, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "undo", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 34, mgr.getOperatorList().get(i).getPosition());
 		i++;
 		assertEquals("Operator " + i, "clear", mgr.getOperatorList().get(i).getKey());
+		assertEquals("Operator " + i + " position", 40, mgr.getOperatorList().get(i).getPosition());
 	}
 }
